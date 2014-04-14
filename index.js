@@ -18,7 +18,7 @@ var WebDriverInstance = function (baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
 
   this.name = spec.browserName + ' via Remote WebDriver';
-  console.log "joe's test"
+  console.log("joes test");
   this.on('kill', function(callback) {
     self.browser.quit(function() {
       console.log('Killed ' + spec.name + '.');
