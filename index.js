@@ -18,7 +18,6 @@ var WebDriverInstance = function (baseBrowserDecorator, args) {
   baseBrowserDecorator(this);
 
   this.name = spec.browserName + ' via Remote WebDriver';
-  console.log("joes test");
   this.on('kill', function(callback) {
     self.browser.quit(function() {
       console.log('Killed ' + spec.name + '.');
@@ -29,7 +28,9 @@ var WebDriverInstance = function (baseBrowserDecorator, args) {
   this._start = function (url) {
     self.browser = wd.remote(config);
     self.browser.init(spec, function () {
+      console.log("SessionId: " + self.browser.sessionID);
       self.browser.get(url);
+      console.log(self.browser.title());
     });
   };
 };
